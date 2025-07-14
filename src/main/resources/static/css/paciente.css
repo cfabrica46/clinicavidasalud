@@ -1,0 +1,58 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-header {
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-header i {
+  color: #ffffff;
+}
+
+.option-card {
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.option-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.1);
+}
+
+.icon-wrapper i {
+  transition: transform 0.3s ease;
+}
+
+.option-card:hover .icon-wrapper i {
+  transform: scale(1.1);
+}
+
+.btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+card h5 {
+  color: #1976d2;
+}
+
+.badge {
+  font-size: 0.9rem;
+  padding: 0.4em 0.6em;
+  border-radius: 0.5rem;
+}
+
+.card ul {
+  padding-left: 1.25rem;
+}
+
+.card ul li {
+  margin-bottom: 0.4rem;
+}
+
+.card .btn-sm i {
+  margin-right: 4px;
+}

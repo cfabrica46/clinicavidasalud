@@ -1,0 +1,24 @@
+📦 Dependencias del Proyecto
+🧠 Núcleo de Spring Boot
+Dependencia	Función
+spring-boot-starter-web	Para crear una API REST y servir páginas web (controladores, JSON, etc.).
+spring-boot-starter-thymeleaf	Para renderizar páginas HTML dinámicas.
+spring-boot-starter-data-jpa	Para manejar la persistencia con MySQL mediante JPA (Hibernate).
+spring-boot-starter-security	Para implementar autenticación, control de acceso por roles y protección de rutas.
+spring-boot-starter-logging	Para el sistema de logs con Logback (se incluye por defecto).
+
+🗄️ Base de datos
+Dependencia	Función
+mysql-connector-j	Driver JDBC para conectarse a MySQL.
+
+✅ Validaciones y formularios
+Dependencia	Función
+jakarta.validation-api	Permite usar anotaciones como @NotNull, @Email, @Size, etc. para validar DTOs y formularios.
+
+🧪 Testing (opcional pero recomendable)
+Dependencia	Función
+spring-boot-starter-test	Para pruebas unitarias e integración (JUnit, Mockito, etc.).
+
+🛠️ Desarrollo (solo en modo local)
+Dependencia	Función
+spring-boot-devtools	Recarga automática de la app al guardar archivos. Solo en entorno de desarrollo.

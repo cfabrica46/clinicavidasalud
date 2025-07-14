@@ -1,0 +1,30 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(145deg, #e3f2fd, #ffffff);
+}
+
+.login-card {
+  max-width: 400px;
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  transition: box-shadow 0.3s ease;
+}
+
+.login-card:hover {
+  box-shadow: 0 0 0 4px rgba(33, 150, 243, 0.1);
+}
+
+input.form-control:focus {
+  border-color: #1976d2;
+  box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.25);
+}
+
+.btn-primary {
+  background-color: #1976d2;
+  border-color: #1976d2;
+}
+
+.btn-primary:hover {
+  background-color: #1565c0;
+  border-color: #1565c0;
+}

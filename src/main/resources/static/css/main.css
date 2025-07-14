@@ -1,0 +1,27 @@
+.hero {
+  background: url('https://www.esan.edu.pe/images/blog/2012/09/11/1500x844-medicos.jpg') center/cover no-repeat;
+  min-height: 300px;
+  position: relative;
+}
+
+.hero .bg-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 50, 0.5);
+  z-index: 1;
+}
+
+.hero .container {
+  position: relative;
+  z-index: 2;
+}
+
+.card {
+  border-radius: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.1);
+}

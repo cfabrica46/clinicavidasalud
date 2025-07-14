@@ -1,0 +1,94 @@
+🔹 FASE 1 – Autenticación y roles básicos (Usuarios)
+📌 Objetivo: Habilitar login, registro y seguridad básica por rol.
+
+Pasos clave:
+
+Crear entidades Usuario y Rol.
+
+Configurar Spring Security (SecurityConfig.java) con autenticación por rol.
+
+Implementar AuthController con:
+
+GET /login, POST /login
+
+GET /register, POST /register
+
+Crear formularios Thymeleaf para login y registro.
+
+Configurar redirecciones según rol al iniciar sesión.
+
+🔹 FASE 2 – Paneles por rol (Routing y dashboards)
+📌 Objetivo: Mostrar pantallas básicas para cada tipo de usuario.
+
+Pasos clave:
+
+Crear controladores vacíos: PacienteController, MedicoController, AdminController.
+
+Definir rutas como:
+
+/paciente/home, /medico/home, /admin/dashboard
+
+Crear plantillas HTML básicas para cada home.
+
+🔹 FASE 3 – Módulo Paciente (Solicitar y ver citas)
+📌 Objetivo: Permitir al paciente crear y cancelar citas.
+
+Pasos clave:
+
+Crear entidades Cita, Especialidad.
+
+Crear CitaController y CitaService.
+
+Mostrar formulario para agendar citas (lista de médicos por especialidad).
+
+Guardar la cita si hay disponibilidad.
+
+Mostrar listado de citas agendadas (y opción para cancelar).
+
+🔹 FASE 4 – Módulo Médico (Agenda y notas clínicas)
+📌 Objetivo: Mostrar agenda del médico y permitir registrar atención.
+
+Pasos clave:
+
+En MedicoController, mostrar las citas del día.
+
+Habilitar una vista por cita para registrar:
+
+Diagnóstico.
+
+Nota clínica.
+
+Mostrar historial de citas atendidas por paciente.
+
+🔹 FASE 5 – Módulo Administrador (Gestión de usuarios, especialidades y horarios)
+📌 Objetivo: Hacer CRUD completo para usuarios y especialidades.
+
+Pasos clave:
+
+AdminController:
+
+Vista de usuarios (listar, crear, editar, eliminar).
+
+Vista de especialidades.
+
+Vista para configurar disponibilidad de médicos.
+
+Implementar formularios en Thymeleaf.
+
+Asociar horarios disponibles con médicos.
+
+🔹 FASE 6 – Validaciones, seguridad y detalles extra
+📌 Objetivo: Refinar el sistema y cubrir detalles no funcionales.
+
+Incluye:
+
+Validaciones de formularios (Spring Validator o a nivel HTML5).
+
+Control de excepciones y mensajes de error amigables.
+
+Refinar la interfaz con Bootstrap.
+
+Seguridad más fuerte (CSRF, contraseñas encriptadas con BCrypt, etc).
+
+Pruebas básicas (unitarias y de integración).
+

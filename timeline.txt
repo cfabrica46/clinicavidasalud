@@ -1,0 +1,50 @@
+🔥 Plan eficiente y realista (orden sugerido por prioridad):
+1. Lógica de usuario funcional (login + registro + roles) — Día 1 y 2
+Login/registro real desde HTML
+
+Encriptación de contraseñas con BCrypt
+
+Validación de sesión
+
+Redirección por rol (/paciente/home, /medico/home, /admin/dashboard)
+
+Seguridad por rutas (solo accede quien debe)
+
+🎯 Con esto ya puedes "simular" flujos completos para cada tipo de usuario.
+
+2. Citas del paciente y agenda del médico — Días 3 al 6
+Agendar cita (Paciente)
+
+Ver agenda (Médico)
+
+Cancelar cita
+
+Ver historial
+
+🎯 Esto cubre lo que un profe/cliente clínico esperaría sí o sí.
+
+3. Notas clínicas y recetas — Días 6 al 8
+Registrar nota médica por cita
+
+Visualizar notas por paciente
+
+Recetas simples por cita
+
+4. Módulo administrador básico — Días 9 al 11
+Crear usuarios (Paciente/Médico)
+
+Agregar especialidades
+
+Asignar disponibilidad a médicos
+
+5. Detalles finales, pruebas, documentación — Días 12 a 14
+Estética final
+
+Testing rápido
+
+PDF del informe
+
+PPT
+
+Video demo (si se requiere)
+

@@ -1,0 +1,100 @@
+✅ FASE 1: Configuración Inicial
+Configurar pom.xml
+Asegúrate de incluir todas las dependencias clave: Web, Thymeleaf, JPA, MySQL, Security, DevTools, etc.
+
+Configurar application.properties
+Define la conexión a la base de datos y otras configuraciones básicas:
+
+properties
+Copiar código
+spring.datasource.url=jdbc:mysql://localhost:3306/vidasalud
+spring.datasource.username=tu_usuario
+spring.datasource.password=tu_contraseña
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.thymeleaf.cache=false
+Crear clase principal VidaSaludApplication.java
+
+java
+Copiar código
+@SpringBootApplication
+public class VidaSaludApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(VidaSaludApplication.class, args);
+    }
+}
+✅ FASE 2: Autenticación y Roles
+Crear entidades Usuario y Rol
+
+Crear UsuarioDTO y UsuarioRepository
+
+Implementar UsuarioService para registro, autenticación y consulta por roles
+
+Configurar seguridad en SecurityConfig.java
+
+Define rutas públicas y protegidas
+
+Usa in-memory o JDBC auth, según tu plan
+
+Implementa control de acceso por rol
+
+Crear AuthController con rutas para login y registro
+
+✅ FASE 3: Gestión de citas
+Crear entidades Cita y Especialidad
+
+Crear RegistroCitaDTO, CitaRepository, EspecialidadRepository
+
+Desarrollar CitaService para lógica de agendamiento y cancelación
+
+Crear CitaController
+
+Endpoints para agendar, ver citas, cancelar
+
+✅ FASE 4: Módulos por rol
+Paciente
+
+Ver y agendar citas (PacienteController)
+
+Ver historial
+
+Vista citas.html
+
+Médico
+
+Ver agenda (MedicoController)
+
+Registrar notas clínicas (NotaClinica.java)
+
+Vista agenda.html
+
+Administrador
+
+CRUD de usuarios y especialidades (AdminController)
+
+Vista usuarios.html, especialidades.html
+
+✅ FASE 5: Frontend con Thymeleaf
+Crear base HTML con layout/base.html
+
+Extender plantillas en auth/, paciente/, medico/, admin/
+
+Agregar estilos con Bootstrap en static/css/
+
+Agregar validaciones de formularios (opcional: Thymeleaf + JS)
+
+✅ FASE 6: Mejoras y pruebas
+Manejo de errores (404, 403, validaciones)
+
+Logs claros con @Slf4j o LoggerFactory
+
+Crear pruebas con spring-boot-starter-test
+
+Documentar la API (si se expone REST para app móvil o front externo)
+
+✅ FASE 7: Opcional
+Dockerizar app con Dockerfile
+
+Preparar despliegue en Render, Railway o GCP
+
+Agregar JWT o integración externa (correo, API)

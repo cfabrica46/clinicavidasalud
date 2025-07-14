@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda | Médico</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" th:href="@{/css/medico.css}" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+
+<body class="bg-light">
+
+<header class="hero-header text-white text-center py-5 mb-5 position-relative">
+  <div class="position-absolute top-0 end-0 m-3">
+    <a href="/medico/home" class="btn btn-outline-light me-2" title="Inicio">
+      <i class="bi bi-house-door-fill"></i>
+    </a>
+    <a href="/" class="btn btn-outline-light" title="Cerrar sesión">
+      <i class="bi bi-box-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="container">
+    <i class="bi bi-calendar2-week display-1 mb-3 d-block"></i>
+    <h1 class="fw-bold" th:text="'Agenda - ' + ${filtroLabel}">Agenda</h1>
+    <p class="fs-5 opacity-75">Consulta tus citas médicas</p>
+  </div>
+</header>
+
+<div class="container mb-4">
+  <div class="btn-group w-100" role="group">
+    <a th:href="@{/medico/agenda(filtro='hoy')}" class="btn"
+       th:classappend="${filtro == 'hoy'} ? 'btn-primary' : 'btn-outline-primary'">Hoy</a>
+    <a th:href="@{/medico/agenda(filtro='proximas')}" class="btn"
+       th:classappend="${filtro == 'proximas'} ? 'btn-primary' : 'btn-outline-primary'">Próximas</a>
+    <a th:href="@{/medico/agenda(filtro='pasadas')}" class="btn"
+       th:classappend="${filtro == 'pasadas'} ? 'btn-primary' : 'btn-outline-primary'">Pasadas</a>
+  </div>
+</div>
+
+<div class="container mb-5">
+  <div th:if="${#lists.isEmpty(citas)}" class="alert alert-info text-center rounded-4">
+    No hay citas para este filtro.
+  </div>
+
+  <!-- Citas renderizadas con atributos data-* -->
+  <div th:each="cita : ${citas}" class="card shadow-sm mb-4 rounded-4 p-4"
+       th:attr="data-id=${cita.id},
+                data-hora=${cita.hora},
+                data-nombre=${cita.nombrePaciente},
+                data-apellido=${cita.apellidoPaciente},
+                data-especialidad=${cita.nombreEspecialidad},
+                data-estado=${cita.estado}">
+    <div class="d-flex justify-content-between flex-wrap align-items-center">
+      <div>
+        <h5 class="fw-semibold mb-1 cita-info">Cargando...</h5>
+        <p class="text-muted mb-0 especialidad-info">Cargando...</p>
+        <span class="estado badge">...</span>
+      </div>
+
+      <a class="btn btn-outline-primary rounded-pill mt-3 mt-md-0 btn-nota">
+        <i class="bi bi-journal-text me-1"></i>
+        <span>Abrir Nota Clínica</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".card[data-id]").forEach(card => {
+      const hora = card.dataset.hora || 'Sin hora';
+      const nombre = card.dataset.nombre || '';
+      const apellido = card.dataset.apellido || '';
+      const especialidad = card.dataset.especialidad || 'No asignada';
+      const estado = card.dataset.estado || 'PENDIENTE';
+      const citaId = card.dataset.id;
+
+      const citaInfo = card.querySelector(".cita-info");
+      const especialidadInfo = card.querySelector(".especialidad-info");
+      const estadoElem = card.querySelector(".estado");
+      const btnNota = card.querySelector(".btn-nota");
+      const icon = btnNota.querySelector("i");
+      const text = btnNota.querySelector("span");
+
+      if (citaInfo) citaInfo.textContent = `${hora} - ${nombre} ${apellido}`.trim();
+      if (especialidadInfo) especialidadInfo.textContent = `Especialidad: ${especialidad}`;
+      if (estadoElem) {
+        estadoElem.textContent = estado;
+        estadoElem.classList.add("badge");
+        if (estado === "ATENDIDA") {
+          estadoElem.classList.add("bg-success");
+        } else {
+          estadoElem.classList.add("bg-warning", "text-dark");
+        }
+      }
+
+      if (estado === "ATENDIDA") {
+        btnNota.classList.remove("btn-outline-primary");
+        btnNota.classList.add("btn-outline-secondary");
+        icon.classList.remove("bi-journal-text");
+        icon.classList.add("bi-eye");
+        text.textContent = "Ver Nota";
+      } else {
+        btnNota.classList.remove("btn-outline-secondary");
+        btnNota.classList.add("btn-outline-primary");
+        icon.classList.remove("bi-eye");
+        icon.classList.add("bi-journal-text");
+        text.textContent = "Abrir Nota Clínica";
+      }
+
+      btnNota.setAttribute("href", `/medico/nota/nueva?citaId=${citaId}`);
+    });
+  });
+</script>
+
+</body>
+</html>

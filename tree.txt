@@ -1,0 +1,126 @@
+╰─❯ tree
+tree.
+├── codigo.txt
+├── dependencias.txt
+├── Dockerfile
+├── paso.txt
+├── pom.xml
+├── README.md
+├── requerimientos.txt
+├── src
+│   └── main
+│       ├── java
+│       │   └── com
+│       │       └── clinicavidasalud
+│       │           ├── ClinicavidasaludApplication.java
+│       │           ├── config
+│       │           │   └── SecurityConfig.java
+│       │           ├── controller
+│       │           │   ├── AdminController.java
+│       │           │   ├── AuthController.java
+│       │           │   ├── CitaController.java
+│       │           │   ├── MedicoController.java
+│       │           │   └── PacienteController.java
+│       │           ├── dto
+│       │           │   ├── RegistroCitaDTO.java
+│       │           │   └── UsuarioDTO.java
+│       │           ├── entity
+│       │           │   ├── Cita.java
+│       │           │   ├── Especialidad.java
+│       │           │   ├── NotaClinica.java
+│       │           │   ├── Rol.java
+│       │           │   └── Usuario.java
+│       │           ├── repository
+│       │           │   ├── CitaRepository.java
+│       │           │   ├── EspecialidadRepository.java
+│       │           │   └── UsuarioRepository.java
+│       │           └── service
+│       │               ├── AdminService.java
+│       │               ├── CitaService.java
+│       │               ├── MedicoService.java
+│       │               └── UsuarioService.java
+│       └── resources
+│           ├── application.properties
+│           ├── static
+│           │   ├── css
+│           │   │   ├── admin.css
+│           │   │   ├── auth.css
+│           │   │   ├── main.css
+│           │   │   ├── medico.css
+│           │   │   └── paciente.css
+│           │   └── js
+│           │       ├── admin.js
+│           │       ├── auth.js
+│           │       ├── main.js
+│           │       ├── medico.js
+│           │       └── paciente.js
+│           └── templates
+│               ├── admin
+│               │   ├── dashboard.html
+│               │   ├── disponibilidad.html
+│               │   ├── especialidades.html
+│               │   └── usuarios.html
+│               ├── auth
+│               │   ├── login.html
+│               │   └── register.html
+│               ├── dashboard.html
+│               ├── layout
+│               │   └── base.html
+│               ├── medico
+│               │   ├── agenda.html
+│               │   ├── home.html
+│               │   └── nota-clinica.html
+│               └── paciente
+│                   ├── citas.html
+│                   ├── home.html
+│                   └── recetas.html
+├── target
+│   ├── classes
+│   │   ├── application.properties
+│   │   ├── com
+│   │   │   └── clinicavidasalud
+│   │   │       ├── ClinicavidasaludApplication.class
+│   │   │       ├── config
+│   │   │       ├── controller
+│   │   │       │   └── CitaController.class
+│   │   │       ├── dto
+│   │   │       ├── entity
+│   │   │       │   └── Usuario.class
+│   │   │       ├── repository
+│   │   │       └── service
+│   │   │           └── CitaService.class
+│   │   ├── static
+│   │   │   ├── css
+│   │   │   │   ├── admin.css
+│   │   │   │   ├── auth.css
+│   │   │   │   ├── main.css
+│   │   │   │   ├── medico.css
+│   │   │   │   └── paciente.css
+│   │   │   └── js
+│   │   │       ├── admin.js
+│   │   │       ├── auth.js
+│   │   │       ├── main.js
+│   │   │       ├── medico.js
+│   │   │       └── paciente.js
+│   │   └── templates
+│   │       ├── admin
+│   │       │   ├── dashboard.html
+│   │       │   ├── disponibilidad.html
+│   │       │   ├── especialidades.html
+│   │       │   └── usuarios.html
+│   │       ├── auth
+│   │       │   ├── login.html
+│   │       │   └── register.html
+│   │       ├── dashboard.html
+│   │       ├── layout
+│   │       │   └── base.html
+│   │       ├── medico
+│   │       │   ├── agenda.html
+│   │       │   ├── home.html
+│   │       │   └── nota-clinica.html
+│   │       └── paciente
+│   │           ├── citas.html
+│   │           ├── home.html
+│   │           └── recetas.html
+│   └── test-classes
+└── tree.txt

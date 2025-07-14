@@ -1,0 +1,43 @@
+ 📌 1. Gestión de usuarios
+Registro de usuarios con roles diferenciados:
+
+Paciente, Médico, Administrador.
+
+Inicio de sesión (login) con autenticación por rol.
+
+Control de acceso según rol (seguridad por rutas y vistas).
+
+📌 2. Gestión de citas médicas
+Paciente:
+
+Solicitar citas con médicos según disponibilidad y especialidad.
+
+Cancelar citas agendadas.
+
+Ver historial de citas y su estado.
+
+Médico:
+
+Visualizar su agenda de citas en tiempo real.
+
+📌 3. Gestión médica
+El médico debe poder:
+
+Registrar notas clínicas por cada cita.
+
+Consultar historial médico básico (fecha, paciente, diagnóstico).
+
+📌 4. Módulo administrativo
+Administrador:
+
+Administrar usuarios:
+
+Alta, modificación y baja de usuarios.
+
+Gestionar especialidades médicas:
+
+Crear, actualizar, eliminar especialidades.
+
+Configurar disponibilidad de atención por médico:
+
+Definir horarios para cada profesional de salud

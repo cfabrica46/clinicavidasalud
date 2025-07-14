@@ -1,0 +1,39 @@
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+.hero-header {
+  background: linear-gradient(135deg, #0d47a1, #42a5f5);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.option-card {
+  background-color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.option-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 123, 255, 0.1);
+}
+
+.icon-wrapper i {
+  transition: transform 0.3s ease;
+}
+
+.option-card:hover .icon-wrapper i {
+  transform: scale(1.1);
+}
+
+.badge {
+  font-size: 0.85rem;
+  padding: 0.4em 0.65em;
+  border-radius: 1rem;
+}
+
+form textarea {
+  resize: vertical;
+  font-size: 0.95rem;
+}
+
