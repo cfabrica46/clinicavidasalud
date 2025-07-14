@@ -6,75 +6,196 @@
   <title>Disponibilidad Médica | Administrador</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
-  <link rel="stylesheet" href="../../static/css/admin.css" />
+  <link rel="stylesheet" href="/css/admin.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
-<body class="bg-light">
-  <header class="hero-header-admin text-white text-center py-5 mb-5">
-    <div class="container">
-      <i class="bi bi-clock-history display-1 mb-3 d-block"></i>
-      <h1 class="fw-bold">Disponibilidad Médica</h1>
-      <p class="fs-5 opacity-75">Configura los horarios de atención por médico y especialidad</p>
-    </div>
-  </header>
 
-  <div class="container mb-5">
-    <form class="bg-white p-4 rounded-4 shadow-sm">
-      <div class="row g-3 mb-4">
-        <div class="col-md-6">
-          <label for="medico" class="form-label fw-semibold">Médico</label>
-          <select id="medico" class="form-select" required>
-            <option selected disabled>Selecciona un médico</option>
-            <option>Dr. José Martínez</option>
-            <option>Dra. Mariana Flores</option>
-          </select>
-        </div>
-        <div class="col-md-6">
-          <label for="especialidad" class="form-label fw-semibold">Especialidad</label>
-          <select id="especialidad" class="form-select" required>
-            <option selected disabled>Selecciona una especialidad</option>
-            <option>Cardiología</option>
-            <option>Dermatología</option>
-          </select>
-        </div>
+<body class="bg-light">
+<header class="hero-header text-white text-center py-5 mb-5 position-relative">
+  <div class="position-absolute top-0 end-0 m-3">
+    <a href="/admin/home" class="btn btn-outline-light me-2" title="Inicio">
+      <i class="bi bi-house-door-fill"></i>
+    </a>
+    <a href="/" class="btn btn-outline-light" title="Cerrar sesión">
+      <i class="bi bi-box-arrow-right"></i>
+    </a>
+  </div>
+
+  <div class="container">
+    <i class="bi bi-clock-history display-1 mb-3 d-block"></i>
+    <h1 class="fw-bold">Disponibilidad Médica</h1>
+    <p class="fs-5 opacity-75">Configura los horarios de atención por médico y especialidad</p>
+  </div>
+</header>
+
+<div class="container mb-5">
+  <form id="form-horario" class="bg-white p-4 rounded-4 shadow-sm">
+    <div class="row g-3 mb-4">
+      <div class="col-md-6">
+        <label for="medico" class="form-label fw-semibold">Médico</label>
+        <select id="medico" class="form-select" required>
+          <option selected disabled>Selecciona un médico</option>
+        </select>
+      </div>
+      <div class="col-md-6">
+        <label for="especialidad" class="form-label fw-semibold">Especialidad</label>
+        <select id="especialidad" class="form-select" required>
+          <option selected disabled>Selecciona una especialidad</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row g-3 align-items-end">
+      <div class="col-md-4">
+        <label for="dia" class="form-label fw-semibold">Día</label>
+        <select class="form-select" id="dia" required>
+          <option value="" selected disabled>Selecciona un día</option>
+          <option value="LUNES">Lunes</option>
+          <option value="MARTES">Martes</option>
+          <option value="MIERCOLES">Miércoles</option>
+          <option value="JUEVES">Jueves</option>
+          <option value="VIERNES">Viernes</option>
+          <option value="SABADO">Sábado</option>
+          <option value="DOMINGO">Domingo</option>
+        </select>
       </div>
 
-      <hr class="my-4" />
+      <div class="col-md-3">
+        <label for="horaInicio" class="form-label fw-semibold">Hora de inicio</label>
+        <input type="time" id="horaInicio" class="form-control" required />
+      </div>
 
-      <h5 class="fw-semibold mb-3">Horario semanal</h5>
+      <div class="col-md-3">
+        <label for="horaFin" class="form-label fw-semibold">Hora de fin</label>
+        <input type="time" id="horaFin" class="form-control" required />
+      </div>
 
-      <div class="table-responsive">
-        <table class="table table-bordered align-middle text-center">
-          <thead class="table-light">
-            <tr>
-              <th>Día</th>
-              <th>Hora Inicio</th>
-              <th>Hora Fin</th>
-              <th>Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Lunes</td>
-              <td><input type="time" class="form-control" value="09:00" /></td>
-              <td><input type="time" class="form-control" value="13:00" /></td>
-              <td>
-                <button class="btn btn-sm btn-outline-danger rounded-pill">
-                  <i class="bi bi-trash"></i> Eliminar
-                </button>
-              </td>
-            </tr>
-            <!-- Más filas dinámicamente -->
-          </tbody>
-        </table>
-      </divo>
-
-      <div class="text-end mt-4">
-        <button type="submit" class="btn btn-success rounded-pill px-4">
-          <i class="bi bi-save me-1"></i> Guardar Cambios
+      <div class="col-md-2 text-end">
+        <button type="submit" class="btn btn-primary rounded-pill px-4 w-100">
+          <i class="bi bi-plus-circle me-1"></i> Guardar
         </button>
       </div>
-    </form>
+    </div>
+  </form>
+
+  <div class="shadow-sm p-4 bg-white rounded-4 mt-4">
+    <h5 class="fw-semibold mb-3">Horarios registrados</h5>
+    <table class="table table-bordered text-center align-middle">
+      <thead class="table-light">
+        <tr>
+          <th>Día</th>
+          <th>Desde</th>
+          <th>Hasta</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="tabla-horarios">
+        <!-- JS llenara esta parte -->
+      </tbody>
+    </table>
   </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const selectMedico = document.getElementById("medico");
+  const selectEspecialidad = document.getElementById("especialidad");
+  const tabla = document.getElementById("tabla-horarios");
+  const form = document.getElementById("form-horario");
+
+  let medicoIdSeleccionado = null;
+
+  function cargarMedicos() {
+    fetch("/api/admin/medicos")
+    .then(res => res.json())
+    .then(medicos => {
+      const select = document.getElementById("medico");
+      select.innerHTML = '<option selected disabled>Selecciona un médico</option>';
+      medicos.forEach(m => {
+        const option = document.createElement("option");
+        option.value = m.id;
+        option.textContent = m.nombre + " " + m.apellido;
+        select.appendChild(option);
+      });
+    });
+
+  }
+
+  function cargarEspecialidades() {
+    fetch("/api/admin/especialidades")
+      .then(r => r.json())
+      .then(data => {
+        data.forEach(esp => {
+          const opt = document.createElement("option");
+          opt.value = esp.id;
+          opt.textContent = esp.nombre;
+          selectEspecialidad.appendChild(opt);
+        });
+      });
+  }
+
+  function cargarHorarios() {
+    if (!medicoIdSeleccionado) return;
+    fetch(`/api/horario/${medicoIdSeleccionado}`)
+      .then(r => r.json())
+      .then(data => {
+        tabla.innerHTML = "";
+        if (data.length === 0) {
+          tabla.innerHTML = `<tr><td colspan='4'>Sin horarios</td></tr>`;
+          return;
+        }
+        data.forEach(h => {
+          const fila = document.createElement("tr");
+          fila.innerHTML = `
+            <td>${h.diaSemana}</td>
+            <td>${h.horaInicio}</td>
+            <td>${h.horaFin}</td>
+            <td>
+              <button class="btn btn-sm btn-danger" data-id="${h.id}"><i class="bi bi-trash"></i></button>
+            </td>`;
+          tabla.appendChild(fila);
+        });
+      });
+  }
+
+  tabla.addEventListener("click", e => {
+    if (e.target.closest(".btn-danger")) {
+      const id = e.target.closest(".btn-danger").dataset.id;
+      fetch(`/api/horario/${id}`, { method: "DELETE" })
+        .then(() => cargarHorarios());
+    }
+  });
+
+  selectMedico.addEventListener("change", () => {
+    medicoIdSeleccionado = selectMedico.value;
+    cargarHorarios();
+  });
+
+  form.addEventListener("submit", e => {
+    e.preventDefault();
+    if (!medicoIdSeleccionado) return alert("Selecciona un médico primero");
+
+    const nuevo = {
+      medicoId: medicoIdSeleccionado,
+      especialidadId: selectEspecialidad.value,
+      diaSemana: document.getElementById("dia").value,
+      horaInicio: document.getElementById("horaInicio").value,
+      horaFin: document.getElementById("horaFin").value
+    };
+
+    fetch("/api/horario", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(nuevo)
+    }).then(() => {
+      form.reset();
+      cargarHorarios();
+    });
+  });
+
+  cargarMedicos();
+  cargarEspecialidades();
+});
+</script>
 </body>
 </html>

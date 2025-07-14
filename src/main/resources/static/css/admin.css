@@ -3,8 +3,12 @@ body {
 }
 
 .hero-header {
-  background: linear-gradient(135deg, #0d47a1, #42a5f5);
+  background: linear-gradient(135deg, #1976d2, #42a5f5);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-header i {
+  color: #ffffff;
 }
 
 .option-card {
@@ -26,14 +30,29 @@ body {
   transform: scale(1.1);
 }
 
+.btn {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+card h5 {
+  color: #1976d2;
+}
+
 .badge {
-  font-size: 0.85rem;
-  padding: 0.4em 0.65em;
-  border-radius: 1rem;
+  font-size: 0.9rem;
+  padding: 0.4em 0.6em;
+  border-radius: 0.5rem;
 }
 
-form textarea {
-  resize: vertical;
-  font-size: 0.95rem;
+.card ul {
+  padding-left: 1.25rem;
 }
 
+.card ul li {
+  margin-bottom: 0.4rem;
+}
+
+.card .btn-sm i {
+  margin-right: 4px;
+}
